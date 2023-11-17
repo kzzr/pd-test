@@ -1,0 +1,20 @@
+version: '3'
+services:
+  pgrdty:
+    hostname: pd_1
+    build:
+      context: ./docker
+    volumes:
+      - ../:/app
+      - /etc/localtime:/etc/localtime:ro 
+    ports:
+        - "5014:5014"
+    expose:
+      - "5014"
+    restart: always
+    healthcheck:
+      test: curl -k -f http://127.0.0.1:5014 || exit
+      interval: 5s
+      timeout: 5s
+      retries: 30
+

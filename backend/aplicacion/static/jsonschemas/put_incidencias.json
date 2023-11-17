@@ -1,0 +1,69 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Welcome1",
+    "definitions": {
+        "Welcome1": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "incident": {
+                    "$ref": "#/definitions/Incident"
+                }
+            },
+            "required": [
+                "id",
+                "incident"
+            ],
+            "title": "Welcome1"
+        },
+        "Incident": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "priority": {
+                    "$ref": "#/definitions/EscalationPolicy"
+                },
+                "urgency": {
+                    "type": "string"
+                },
+                "escalation_policy": {
+                    "$ref": "#/definitions/EscalationPolicy"
+                }
+            },
+            "required": [
+                "escalation_policy",
+                "priority",
+                "title",
+                "type",
+                "urgency"
+            ],
+            "title": "Incident"
+        },
+        "EscalationPolicy": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "type"
+            ],
+            "title": "EscalationPolicy"
+        }
+    }
+}

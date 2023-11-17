@@ -1,0 +1,94 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Welcome4",
+    "definitions": {
+        "Welcome4": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "incident": {
+                    "$ref": "#/definitions/Incident"
+                }
+            },
+            "required": [
+                "incident"
+            ],
+            "title": "Welcome4"
+        },
+        "Incident": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "service": {
+                    "$ref": "#/definitions/EscalationPolicy"
+                },
+                "priority": {
+                    "$ref": "#/definitions/EscalationPolicy"
+                },
+                "urgency": {
+                    "type": "string"
+                },
+                "incident_key": {
+                    "type": "string"
+                },
+                "body": {
+                    "$ref": "#/definitions/Body"
+                },
+                "escalation_policy": {
+                    "$ref": "#/definitions/EscalationPolicy"
+                }
+            },
+            "required": [
+                "body",
+                "escalation_policy",
+                "incident_key",
+                "priority",
+                "service",
+                "title",
+                "type",
+                "urgency"
+            ],
+            "title": "Incident"
+        },
+        "Body": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "details": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "details",
+                "type"
+            ],
+            "title": "Body"
+        },
+        "EscalationPolicy": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "type"
+            ],
+            "title": "EscalationPolicy"
+        }
+    }
+}
